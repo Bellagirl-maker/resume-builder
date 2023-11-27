@@ -1,13 +1,19 @@
 import './App.css';
 
 function App() {
-  const age = 12;
-  const isRed = true;
+  // const age = 12;
+  // const isRed = true;
+  const names = ["Ama","Akosua", "Akua","Yaa", "Ewurasi"];
 return (
     <div className='App'>
-      {age >= 18 ? <h1>OVERAGE</h1>:<h1>UNDERAGE</h1>}
+      {names.map((name, key) =>{
+        return <h1 key={key}>{name}</h1>
+
+      })}
+
+      {/* {age >= 18 ? <h1>OVERAGE</h1>:<h1>UNDERAGE</h1>}
       <h1 style={{color: isRed ? "red" : "green"}}> THIS IS COLOR</h1>
-      {isRed && <button>THIS IS A BUTTON</button>}
+      {isRed && <button>THIS IS A BUTTON</button>} */}
      </div>
     // <div>
     // <User name="Isabella" age={21} email="isabella@bella.com" />

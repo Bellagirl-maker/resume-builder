@@ -1,13 +1,18 @@
 import './App.css';
 
 function App() {
-  // const age = 12;
-  // const isRed = true;
-  const names = ["Ama","Akosua", "Akua","Yaa", "Ewurasi"];
+  
+  const users = [
+    { name: "Isabella", age:21 },
+    { name: "Freda", age:22 },
+    { name: "Nathan", age:23 },
+    ];
 return (
     <div className='App'>
-      {names.map((name, key) =>{
-        return <h1 key={key}>{name}</h1>
+      {users.map((user, key) =>{
+       return(
+        <Users name={user.name} age={user.age} />
+       )
 
       })}
 
@@ -22,6 +27,10 @@ return (
     // <Job salary="9000" position="SeniorSDE" company="Amazon" />
     // </div>
   );
+}
+
+const Users = (props) => {
+  return <h1>{props.name} {props.age}</h1>
 }
 
 // const User = (props) =>{

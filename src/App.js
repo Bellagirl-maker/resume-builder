@@ -3,19 +3,22 @@ import  { useState } from "react";
 
 function App() {
 
-  const [inputvalue, setInputValue] = useState("");
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
-  }
+  const [showText, setShowText] = useState(true);
   return (
     <div className='App'>
-      {inputvalue}
-      <input type='text' onChange={handleInputChange}></input> 
+      <button onClick={() => {
+        setShowText(!showText);
+
+      }}>
+      SHOW/HIDE</button>
+      {!showText && <h1>THIS IS MY TEXT</h1>}
     </div>
   );
   
   
-}
+  }
+  
+  
 
 // const Users = (props) => {
 //   return <h1>{props.name} {props.age}</h1>

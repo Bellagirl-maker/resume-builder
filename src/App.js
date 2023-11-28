@@ -3,15 +3,19 @@ import  { useState } from "react";
 
 function App() {
 
-  const [showText, setShowText] = useState(true);
+  const [count, setCount] = useState(0);
   return (
     <div className='App'>
+      {count}
       <button onClick={() => {
-        setShowText(!showText);
-
-      }}>
-      SHOW/HIDE</button>
-      {!showText && <h1>THIS IS MY TEXT</h1>}
+        setCount(count + 1);
+      }}>Increase</button>
+      <button onClick={() => {
+        setCount(count - 1);
+      }}>Decrease</button>
+      <button onClick={() => {
+        setCount(0);
+      }}>Set To Zero</button>
     </div>
   );
   

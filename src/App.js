@@ -3,14 +3,32 @@ import  { useState } from "react";
 
 function App() {
 
-  const [textColor, setTextColor] = useState("black");
+  const [todoList, setTodoList] = useState([]);
+  const [newTask, setNewTask] = useState("")
+  const handleChange = (event) =>{
+    setNewTask(event.target.value);
+  };
+
+  const addTask = () =>{
+    const newTodoList = [...todoList, newTask];
+    setTodoList(newTodoList);
+  }
   return (
     <div className='App'>
-      <button onClick={() => {
-        setTextColor(textColor === "black" ? "red" : "black");
-      }}>Change Color</button>
-      <h1 style={{ color:textColor }}>THIS IS MY TEXT</h1>
-      {/* {count}
+      <div className='addTask'>
+        <input type="text" onChange={(handleChange)}></input>
+        <button onClick={addTask}>Add</button>
+      </div>
+      <div className='lists'>
+        {todoList.map((task) => {
+          return <h1>{task}</h1>
+
+        })}
+      </div>
+      </div>
+  )
+      
+      /* {count}
       <button onClick={() => {
         setCount(count + 1);
       }}>Increase</button>
@@ -20,11 +38,7 @@ function App() {
       <button onClick={() => {
         setCount(0);
       }}>Set To Zero</button> */}
-    </div>
-  );
-  
-  
-  }
+   
   
   
 

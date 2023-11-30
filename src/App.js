@@ -3,10 +3,14 @@ import  { useState } from "react";
 
 function App() {
 
-  const [count, setCount] = useState(0);
+  const [textColor, setTextColor] = useState("black");
   return (
     <div className='App'>
-      {count}
+      <button onClick={() => {
+        setTextColor(textColor === "black" ? "red" : "black");
+      }}>Change Color</button>
+      <h1 style={{ color:textColor }}>THIS IS MY TEXT</h1>
+      {/* {count}
       <button onClick={() => {
         setCount(count + 1);
       }}>Increase</button>
@@ -15,7 +19,7 @@ function App() {
       }}>Decrease</button>
       <button onClick={() => {
         setCount(0);
-      }}>Set To Zero</button>
+      }}>Set To Zero</button> */}
     </div>
   );
   

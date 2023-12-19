@@ -1,48 +1,28 @@
 import './App.css';
-import  { useState } from "react";
+import  { useState, useEffect } from "react";
+import Axios from "axios";
 
 function App() {
+  const[catFact, setCatFact] = useState("");
 
-  const [todoList, setTodoList] = useState([]);
-  const [newTask, setNewTask] = useState("")
-  const handleChange = (event) =>{
-    setNewTask(event.target.value);
-  };
+  const fetchCatFact = () => {
+    Axios.get("https://catfact.ninja/fact").then((res) => {
+      setCatFact(res.data.fact)
+    });
 
-  const addTask = () =>{
-    const task = {
-      id: todoList === 0 ? 1 :todoList[todoList.length - 1].id + 1,
-      taskName: newTask,
-    }
-    setTodoList([...todoList, task]);
   }
+  useEffect(() => {
+    fetchCatFact();
+  }, []);
+ 
 
-  const deleteTask = (id) =>{
-    
-    setTodoList(todoList.filter((task) => task.id !== id));
-  }
+  
   return (
     <div className='App'>
-      <div className='addTask'>
-        <input type="text" onChange={(handleChange)}></input>
-        <button onClick={addTask}>Add</button>
-      </div>
-      <div className='lists'>
-        {todoList.map((task) => {
-          return (
-            <div>
-            <h1>{task.taskName}</h1>
-            <button>Completed</button>
-            <button onClick={() => deleteTask(task)}>X</button>
-          </div>
-
-          ) 
-          
-          
-
-        })}
-      </div>
-      </div>
+      <button onClick={fetchCatFact}>Get Cat Fact</button>
+      <p>{catFact}</p>
+      
+    </div>
   )
       
       /* {count}

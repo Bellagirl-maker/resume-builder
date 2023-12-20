@@ -15,8 +15,6 @@ function App() {
     fetchCatFact();
   }, []);
  
-
-  
   return (
     <div className='App'>
       <button onClick={fetchCatFact}>Get Cat Fact</button>

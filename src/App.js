@@ -3,25 +3,36 @@ import  { useState, useEffect } from "react";
 import Axios from "axios";
 
 function App() {
-  const[catFact, setCatFact] = useState("");
 
-  const fetchCatFact = () => {
-    Axios.get("https://catfact.ninja/fact").then((res) => {
-      setCatFact(res.data.fact)
-    });
-
-  }
-  useEffect(() => {
-    fetchCatFact();
-  }, []);
- 
   return (
     <div className='App'>
-      <button onClick={fetchCatFact}>Get Cat Fact</button>
-      <p>{catFact}</p>
-      
+      <input placeholder='Ex. Isabella ...' />
+      <button>Predict Age</button>
+      <h1>Predicted Age: </h1>
     </div>
-  )
+  );
+}
+
+// function App() {
+//   const[catFact, setCatFact] = useState("");
+
+//   const fetchCatFact = () => {
+//     Axios.get("https://catfact.ninja/fact").then((res) => {
+//       setCatFact(res.data.fact)
+//     });
+
+//   }
+//   useEffect(() => {
+//     fetchCatFact();
+//   }, []);
+ 
+//   return (
+//     <div className='App'>
+//       <button onClick={fetchCatFact}>Get Cat Fact</button>
+//       <p>{catFact}</p>
+      
+//     </div>
+//   )
       
       /* {count}
       <button onClick={() => {
@@ -32,7 +43,7 @@ function App() {
       }}>Decrease</button>
       <button onClick={() => {
         setCount(0);
-      }}>Set To Zero</button> */}
+      }}>Set To Zero</button> */
    
   
   

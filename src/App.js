@@ -7,7 +7,7 @@ function App() {
   const [predictName, setPredictName] = useState(0)
   const fetchData = () => {
     Axios.get(`https://api.agify.io/?name=${name}`).then((res) => {
-      setPredictName(res.data)
+      setPredictName(res.data.age)
 
     });
 

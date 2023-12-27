@@ -4,7 +4,7 @@ import Axios from "axios";
 
 function App() {
   const [name, setName] = useState("");
-  const [predictName, setPredictName] = useState({})
+  const [predictName, setPredictName] = useState(null)
   const fetchData = () => {
     Axios.get(`https://api.agify.io/?name=${name}`).then((res) => {
       setPredictName(res.data)
@@ -19,9 +19,9 @@ function App() {
         setName(event.target.value)
       }}/>
       <button onClick={fetchData}>Predict Age</button>
-      <h1>Name: {predictName.name} </h1>
-      <h1>Predicted Age: {predictName.age} </h1>
-      <h1>Count: {predictName.count} </h1>
+      <h1>Name: {predictName?.name} </h1>
+      <h1>Predicted Age: {predictName?.age} </h1>
+      <h1>Count: {predictName?.count} </h1>
     </div>
   );
 }

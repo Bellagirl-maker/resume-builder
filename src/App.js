@@ -1,29 +1,41 @@
 import './App.css';
-import  { useState } from "react";
-import Axios from "axios";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Home } from './pages/Home';
+// import  { useState } from "react";
+// import Axios from "axios";
 
 function App() {
-  const [name, setName] = useState("");
-  const [predictName, setPredictName] = useState(null)
-  const fetchData = () => {
-    Axios.get(`https://api.agify.io/?name=${name}`).then((res) => {
-      setPredictName(res.data)
-
-    });
-
-  }
-
   return (
     <div className='App'>
-      <input placeholder='Ex. Isabella ...' onChange={(event) => {
-        setName(event.target.value)
-      }}/>
-      <button onClick={fetchData}>Predict Age</button>
-      <h1>Name: {predictName?.name} </h1>
-      <h1>Predicted Age: {predictName?.age} </h1>
-      <h1>Count: {predictName?.count} </h1>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Home />} />
+        </Routes>
+      </Router>
     </div>
-  );
+  )
+
+  // const [name, setName] = useState("");
+  // const [predictName, setPredictName] = useState(null)
+  // const fetchData = () => {
+  //   Axios.get(`https://api.agify.io/?name=${name}`).then((res) => {
+  //     setPredictName(res.data)
+
+  //   });
+
+  // }
+
+  // return (
+  //   <div className='App'>
+  //     <input placeholder='Ex. Isabella ...' onChange={(event) => {
+  //       setName(event.target.value)
+  //     }}/>
+  //     <button onClick={fetchData}>Predict Age</button>
+  //     <h1>Name: {predictName?.name} </h1>
+  //     <h1>Predicted Age: {predictName?.age} </h1>
+  //     <h1>Count: {predictName?.count} </h1>
+  //   </div>
+  // );
 }
 
 // function App() {

@@ -4,17 +4,18 @@ import { Navbar } from './Navbar'
 import { Home } from './pages/Home';
 import { Profile } from './pages/Profile';
 import { Contact } from './pages/Contact';
-// import  { useState } from "react";
+import  { useState } from "react";
 // import Axios from "axios";
 
 function App() {
+  const [user, setUser] = useState("PedroTech");
   return (
     <div className='App'>
       <Router>
         <Navbar />
         <Routes>
-          <Route path='/' element ={<Home />} />
-          <Route path='/profile/:username' element ={<Profile />} />
+          <Route path='/' element ={<Home username={user} />} />
+          <Route path='/profile' element ={<Profile username={user} />} />
           <Route path='/contact' element ={<Contact />} />
         </Routes>
       </Router>

@@ -1,14 +1,14 @@
 import React from 'react'
 import { useState } from 'react'
 
-const ChangeProfile = () => {
+const ChangeProfile = (props) => {
     const [newUserName, setNewUsername] = useState("");
   return (
     <div>
       <input onChange={(event) => {
         setNewUsername(event.target.value)
       }}></input>
-      <button>Change username</button>
+      <button onClick={() => {props.setUser(newUserName)}}>Change Username</button>
     </div>
   )
 }

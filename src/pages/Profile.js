@@ -1,8 +1,12 @@
 // import { useNavigate, useParams } from "react-router-dom"
 
+import ChangeProfile from "./ChangeProfile";
+
 export const Profile = (props) => {
     return (
-        <h1> Profile user is {props.username}</h1>
+        <div> Profile user is {props.username}
+        <ChangeProfile setUser= {props.setUser} />
+        </div>
     );
     // let navigate = useNavigate();
     // let { username } = useParams;
